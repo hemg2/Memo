@@ -6,12 +6,43 @@
 //
 
 import UIKit
+import CoreData
 
 class MemoListTableViewController: UITableViewController {
-
+    let formatter: DateFormatter = {
+       let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr") //로케일설정으로 한글로변형
+        return f
+    }()  //시간 변형
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+        
+        // 테이블뷰에게 목록을업데이트하라고한다.
+//        tableView.reloadData()
+//        print(#function)
+        
+    }
+    
+    //토큰 저장 소스
+    var token: NSObjectProtocol?
+    //소멸자 있어야한다.
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //          옵저버 추가하는코드는 1번이면된다 뷰디드 로드에서
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
+            self?.tableView.reloadData()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,7 +65,7 @@ class MemoListTableViewController: UITableViewController {
         // Configure the cell...
         let target = Memo.dummyMemoList[indexPath.row]
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = target.insertDate.description
+        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
 
         return cell
     }
