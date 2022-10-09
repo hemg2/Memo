@@ -35,6 +35,17 @@ class MemoListTableViewController: UITableViewController {
             NotificationCenter.default.removeObserver(token)
         }
     }
+    //화면전환 직전에 호출
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            if let vc = segue.destination as? DetailViewController {
+                vc.memo = Memo.dummyMemoList[indexPath.row]
+            }
+//            segue.destination //새롭게 표시되는화면
+//            segue.source   // 세그웨이 실행하는 화면
+        }
+            
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
