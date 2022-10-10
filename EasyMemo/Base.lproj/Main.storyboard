@@ -218,6 +218,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="AdP-NQ-gUI"/>
+                    <connections>
+                        <outlet property="memoTableView" destination="TLU-Gt-dCi" id="A4h-gQ-Qgn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Axt-gZ-NSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
