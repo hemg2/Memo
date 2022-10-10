@@ -10,6 +10,7 @@ import UIKit
 class ComposeViewController: UIViewController {
 
     @IBOutlet weak var memoTextView: UITextView!
+    var editTarget: Memo?
     
     @IBAction func CancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -22,9 +23,16 @@ class ComposeViewController: UIViewController {
             return
         }
         //저장
-//        let newMemo = Memo(content: memo)
-//        Memo.dummyMemoList.append(newMemo)
-        DataManager.shared.addNewMemo(memo)
+        //        let newMemo = Memo(content: memo)
+        //        Memo.dummyMemoList.append(newMemo)
+        
+        if let target = editTarget {
+            target.content = memo
+            DataManager.shared.saveContext()
+        } else {
+            DataManager.shared.addNewMemo(memo)
+            
+        }
         //화면 닫기전에 노티전달
         NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
         
@@ -35,8 +43,14 @@ class ComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let memo = editTarget {
+            navigationItem.title = "메모 편집"
+            memoTextView.text = memo.content
+        } else {
+            navigationItem.title = "새 메모"
+            memoTextView.text = ""
+        }
     }
     
 
