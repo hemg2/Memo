@@ -24,6 +24,7 @@ class ComposeViewController: UIViewController {
         //저장
 //        let newMemo = Memo(content: memo)
 //        Memo.dummyMemoList.append(newMemo)
+        DataManager.shared.addNewMemo(memo)
         //화면 닫기전에 노티전달
         NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
         
