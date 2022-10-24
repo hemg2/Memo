@@ -54,7 +54,7 @@
                     <navigationItem key="navigationItem" title="EasyMemo" id="eaR-A6-dtP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="riO-gS-gQb">
                             <connections>
-                                <segue destination="6oT-fp-iaX" kind="presentation" modalPresentationStyle="fullScreen" id="mpk-2q-Q3m"/>
+                                <segue destination="6oT-fp-iaX" kind="presentation" modalPresentationStyle="automatic" id="mpk-2q-Q3m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -154,6 +154,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sr-Pz-9oF">
                                 <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                                 <items>
+                                    <barButtonItem systemItem="trash" id="t9P-NZ-NHF">
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <connections>
+                                            <action selector="deleteMemo:" destination="ls9-CG-aBS" id="7RL-wP-Z5g"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dse-hG-rOM"/>
                                     <barButtonItem systemItem="compose" id="cUu-PU-vGj">
                                         <connections>
                                             <segue destination="6oT-fp-iaX" kind="presentation" id="Yz8-c8-izv"/>
@@ -228,7 +235,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yz8-c8-izv"/>
+        <segue reference="mpk-2q-Q3m"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
@@ -236,6 +243,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
