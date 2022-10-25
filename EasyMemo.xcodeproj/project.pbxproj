@@ -49,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63BEC0682906CCA9006487BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				63F1A83B28F2EC190058782B /* MemoListTableViewController.swift */,
+				63F1A83D28F2F2BC0058782B /* ComposeViewController.swift */,
+				63F1A83F28F2F4980058782B /* UIViewControoler+Alert.swift */,
+				63F1A84128F2FB200058782B /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		63F1A81528F2E05A0058782B = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +81,7 @@
 			children = (
 				63F1A84328F3C8400058782B /* Data */,
 				63F1A83828F2E9FC0058782B /* Model */,
+				63BEC0682906CCA9006487BC /* Controller */,
 				63F1A82128F2E05A0058782B /* AppDelegate.swift */,
 				63F1A82328F2E05A0058782B /* SceneDelegate.swift */,
 				63F1A82728F2E05A0058782B /* Main.storyboard */,
@@ -77,10 +89,6 @@
 				63F1A82F28F2E05C0058782B /* LaunchScreen.storyboard */,
 				63F1A83228F2E05C0058782B /* Info.plist */,
 				63F1A82A28F2E05A0058782B /* EasyMemo.xcdatamodeld */,
-				63F1A83B28F2EC190058782B /* MemoListTableViewController.swift */,
-				63F1A83D28F2F2BC0058782B /* ComposeViewController.swift */,
-				63F1A83F28F2F4980058782B /* UIViewControoler+Alert.swift */,
-				63F1A84128F2FB200058782B /* DetailViewController.swift */,
 			);
 			path = EasyMemo;
 			sourceTree = "<group>";
